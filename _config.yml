@@ -1,1 +1,8 @@
-theme: jekyll-theme-cayman
+# Site settings
+title: ME420 - Practical DFT
+subtitle: 
+url: "http://peterschindler.github.io"
+baseurl: ""
+
+# Build settings
+permalink: pretty
