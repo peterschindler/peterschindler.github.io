@@ -6,7 +6,7 @@ permalink: /
 
 On this website I will try to guide you through the interactive part of the practical DFT lecture. Hopefully this will be interesting and useful for you!
 
-We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/) in conjunction with the DFT code [GPAW](https://wiki.fysik.dtu.dk/gpaw/index.html).
+We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/){:target="_blank"} in conjunction with the DFT code [GPAW](https://wiki.fysik.dtu.dk/gpaw/index.html).
 
 ### Google Colab ###
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
