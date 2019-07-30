@@ -16,7 +16,7 @@ To access a Python notebook just follow one of the links and then click on <b>'F
 </center>
 Once you have copied the notebook to your Google Drive you can edit, execute and work on it.
 
-###ASE Basics###
+### ASE Basics ###
 First, we need to install ASE and GPAW on the server
 ```bash
 !apt install ase
@@ -24,18 +24,20 @@ First, we need to install ASE and GPAW on the server
 ```
 Then we can import the necessary packages into the Python notebook
 ```python
-from ase import Atoms
-from ase.build import bulk
-from ase.io import read, write
-from gpaw import GPAW, PW
+from ase import Atoms #The Atoms object is used to define and work with atomic structure in ASE 
+from ase.build import bulk #The ase.build module has many functions to generate solids and molecules - very handy!
+from ase.io import read, write #The ase.io module is used to read and write crystal/molecular structure files
+from gpaw import GPAW, PW #GPAW is the main calculator and PW is the plane wave module
 ```
-This has typically one of the following forms (.module is specified only a specific module of a Python package is imported, otherwise the whole package is considered):
+This has typically one of the following forms (if .module is specified only a specific module of a Python package is imported, otherwise the whole package is considered):
 ```python
-from package.module import object/function
-from package.module import *
-import package.module
-import package.module as pm
+import package.module as pm #let's you access functions/objects like so: pm.function
+from package.module import object/function #imports object or function from package.module
+from package.module import * #imports all functions/objects
+import package.module #same
 ```
+This is sorted from best to worst practice when it comes to importing in Python.</br>
+
 In Python we first need to import the necessary packages to
 
 
