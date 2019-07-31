@@ -10,7 +10,7 @@ We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dt
 
 ## Google Colab ##
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
-locally - you only need a browser. Our code will be running in a Jupyter notebook using Google's resources.<br/>
+locally - you only need a browser. Our code will be running in a Jupyter notebook on a Google server.<br/>
 To access a Python notebook just follow [**this link**](https://colab.research.google.com/drive/1mofb8yD9rcwVFlBnwkrMf2rx3E1Pru6u) and then click on <b>'File' > 'Save a copy in Drive...'</b>
 <center><img src="Images/colab.jpeg" alt="Google Colab: Copying a Python notebook to your Google Drive" style="width: 300px;"/><br/>
 </center>
@@ -28,6 +28,7 @@ First, we need to install ASE and GPAW on the server (`%%capture` represses outp
 Then we can import the necessary packages into the Python notebook
 ```python
 from ase import Atoms #The Atoms object is used to define and work with atomic structure in ASE 
+from ase.build import bulk #The ase.build module has many functions to generate solids and molecules - very handy!
 from ase.io import read, write #The ase.io module is used to read and write crystal/molecular structure files
 from gpaw import GPAW, PW #GPAW will be our main DFT calculator and PW is the plane wave mode
 ```
@@ -103,17 +104,10 @@ energy (or bond energy) by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/><br/>
 Link to the notebook can be found [here](https://colab.research.google.com/drive/1zrGfh1BvjIFZr53jAGF6EVnQhUd_tATG).<br/><br/>
 How does LDA and PBE compare to the experimental value?
 
-## Elemental transition metal crystals ##
+## Structure of elemental transition metal crystals ##
 
-### Structure and lattice constant ###
 
-```python
-from ase.build import bulk #The ase.build module has many functions to generate solids and molecules - very handy!
-```
 
-### Energy band diagram ###
-
-### Creating super cells and slabs ###
 
 ### Resources ###
 
