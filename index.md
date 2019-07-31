@@ -8,6 +8,12 @@ On this website I will try to guide you through the interactive part of the prac
 
 We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/) in conjunction with the DFT code [GPAW](https://wiki.fysik.dtu.dk/gpaw/index.html).
 
+## Overview ##
+
+1. [ASE Basics](#basics)
+2. [Atomization energy of H<sub>2</sub>](#atomization)
+3. [Elemental transition metal crystals](#metals)
+
 ## Google Colab ##
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
 locally - you only need a browser. Our code will be running in a Jupyter notebook using Google's resources.<br/>
@@ -16,7 +22,8 @@ To access a Python notebook just follow [**this link**](https://colab.research.g
 </center>
 Once you have copied the notebook to your Google Drive you can edit, execute and work on it.
 
-## ASE Basics ##
+<a name="basics"></a>
+## 1. ASE Basics ##
 
 ### Importing modules ###
 First, we need to install ASE and GPAW on the server (`%%capture` represses output of the notebook cell)
@@ -97,13 +104,15 @@ Now we can plot the results with `matplotlib` and by taking use of the `time` pa
 are taking when we increase the energy cutoff.<br/>
 Further, we can get the electron density by `calc.get_all_electron_density(gridrefinement=4)`, then sum over the *x*-direction and plot a 2D contour plot.
 
-## Atomization energy of H<sub>2</sub> ##
+<a name="atomization"></a>
+## 2. Atomization energy of H<sub>2</sub> ##
 Let us look at one more example: By calculating the energy of diatomic hydrogen and the energy of mono-atomic hydrogen we can get the atomization 
 energy (or bond energy) by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/><br/>
 Link to the notebook can be found [here](https://colab.research.google.com/drive/1zrGfh1BvjIFZr53jAGF6EVnQhUd_tATG).<br/><br/>
 How does LDA and PBE compare to the experimental value?
 
-## Elemental transition metal crystals ##
+<a name="metals"></a>
+## 3. Elemental transition metal crystals ##
 
 ### Structure and lattice constant ###
 
