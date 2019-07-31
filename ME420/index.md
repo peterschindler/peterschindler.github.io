@@ -1,7 +1,7 @@
 ---
 layout: page
 mathjax: true 
-permalink: /
+permalink: /ME420/
 ---
 
 On this website I will try to guide you through the interactive part of the practical DFT lecture. Hopefully this will be interesting and useful for you!
