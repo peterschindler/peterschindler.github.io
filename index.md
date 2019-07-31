@@ -98,11 +98,11 @@ Now we can plot the results with `matplotlib` and by taking use of the `time` pa
 are taking when we increase the energy cutoff.<br/>
 Further, we can get the electron density by `calc.get_all_electron_density(gridrefinement=4)`, then sum over the *x*-direction and plot a 2D contour plot.
 
-## Atomization energy of H2 ##
-Let us look at one more example: By calculating the energy of H2 and the energy of monoatomic H we can get the atomization energy (or bond energy) by 
-$$
-2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}
-$$
+## Atomization energy of H<sub>2</sub> ##
+Let us look at one more example: By calculating the energy of diatomic hydrogen and the energy of mono-atomic hydrogen we can get the atomization 
+energy (or bond energy) by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/>
+How does LDA and PBE compare to the experimental value?
+
 ## Structure of elemental transition metal crystals ##
 
 
