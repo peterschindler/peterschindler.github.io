@@ -100,7 +100,8 @@ Further, we can get the electron density by `calc.get_all_electron_density(gridr
 
 ## Atomization energy of H<sub>2</sub> ##
 Let us look at one more example: By calculating the energy of diatomic hydrogen and the energy of mono-atomic hydrogen we can get the atomization 
-energy (or bond energy) by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/>
+energy (or bond energy) by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/><br/>
+Link to the notebook can be found [here](https://colab.research.google.com/drive/1zrGfh1BvjIFZr53jAGF6EVnQhUd_tATG).<br/><br/>
 How does LDA and PBE compare to the experimental value?
 
 ## Structure of elemental transition metal crystals ##
