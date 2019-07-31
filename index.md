@@ -17,6 +17,7 @@ To access a Python notebook just follow [**this link**](https://colab.research.g
 Once you have copied the notebook to your Google Drive you can edit, execute and work on it.
 
 ## ASE Basics ##
+
 ### Importing modules ###
 First, we need to install ASE and GPAW on the server (`%%capture` represses output of the notebook cell)
 ```bash
@@ -39,6 +40,7 @@ from package.module import * #imports all functions/objects
 import package.module #same
 ```
 This is sorted from best to worst practice when it comes to importing modules in Python.
+
 ### Creating our first atomic structure ###
 First, let's create a H2 molecule (experimental distance is 0.74 Angstroms) and add some vacuum padding around it
 ```python
@@ -67,13 +69,15 @@ Then we need to "attach" our calculator to the H2 molecule we created earlier.
 h2.set_calculator(calc)
 ```
 ### Evaluate properties ###
-Now we can simply calculate the energy of the atomic object and could directly print it or safe the result in a variable
+Now we can simply calculate the energy of the atomic object and could either directly return it or safe the result in a variable
 ```python
-h2.get_potential_energy()
+print(h2.get_potential_energy()) #or
+result = h2.get_potential_energy()
 ```
-alternatively, we could also get the forces by `.get_forces()` among many other things.
+Alternatively, we could also get the forces by `.get_forces()` among many other things.
+
 ### Testing for convergence ###
-Python's for loop can now we very useful in testing for convergence (without tediously rewriting input files or continuously reading out energy results)
+Python's for-loop can now we very useful in testing for convergence (without tediously rewriting input files or continuously reading out energy results)
 ```python
 cutoffs = [100,200,300,400,500,1000]
 energies = []
@@ -87,7 +91,14 @@ for cutoff in cutoffs:
   energies.append(h2.get_potential_energy())
 print(energies)#eV
 ```
-here `cutoffs` is a list of energy cutoffs and the for loop iterates over each entry and then adds it to the (at first empty) `energies` list.
+here `cutoffs` is a list of energy cutoffs and the for-loop iterates over each entry and then adds the calculated energy to the (at first empty) `energies` list.
+
+### Displaying results and analysis ###
+Now we can plot the results with `matplotlib` and also using the `time` package we can get a little bit insight on how long the calculations 
+are taking when we increase the energy cutoff.<br/>
+Further, we can get the electron density by `calc.get_all_electron_density(gridrefinement=4)`, then sum over the *x*-direction and plot a 2D contour plot.
+
+
 ### Resources ###
 
 1. [Atomic Simulation Environment](https://wiki.fysik.dtu.dk/ase/)
