@@ -1,6 +1,6 @@
 ---
 layout: page
-mathjax: false 
+mathjax: true 
 permalink: /
 ---
 
@@ -94,9 +94,18 @@ print(energies)#eV
 here `cutoffs` is a list of energy cutoffs and the for-loop iterates over each entry and then adds the calculated energy to the (at first empty) `energies` list.
 
 ### Displaying results and analysis ###
-Now we can plot the results with `matplotlib` and also using the `time` package we can get a little bit insight on how long the calculations 
+Now we can plot the results with `matplotlib` and by taking use of the `time` package we can get a little bit insight on how long the calculations 
 are taking when we increase the energy cutoff.<br/>
 Further, we can get the electron density by `calc.get_all_electron_density(gridrefinement=4)`, then sum over the *x*-direction and plot a 2D contour plot.
+
+## Atomization energy of H2 ##
+Let us look at one more example: By calculating the energy of H2 and the energy of monoatomic H we can get the atomization energy (or bond energy) by 
+$$
+2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}
+$$
+## Structure of elemental transition metal crystals ##
+
+
 
 
 ### Resources ###
