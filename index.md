@@ -7,12 +7,13 @@ permalink: /
 On this website I will try to guide you through the interactive part of the practical DFT lecture. Hopefully this will be interesting and useful for you!
 
 We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/) in conjunction with the DFT code [GPAW](https://wiki.fysik.dtu.dk/gpaw/index.html).
-
+<!--
 ## Overview ##
 
 1. [ASE Basics](#basics)
 2. [Atomization energy of H<sub>2</sub>](#atomization)
 3. [Elemental transition metal crystals](#metals)
+-->
 
 ## Google Colab ##
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
@@ -57,10 +58,10 @@ To export the atomic structure we created we can use the ase.io module
 ```python
 write('h2.cif', h2)
 ```
-and if we wanted to we can let ASE tell us the cell parameters and atomic positions of the object we created
+and we can let ASE tell us the cell parameters and atomic positions of the object we created
 ```python
-h2.cell
-h2.positions
+print(h2.cell)
+print(h2.positions)
 ```
 ### Set GPAW calculator ###
 Now, let's define a calculator using GPAW. We are specifying the exchange-correlation functional, *k*-points, the plane wave energy cutoff and a file to safe the calculation results.
@@ -113,12 +114,34 @@ How does LDA and PBE compare to the experimental value?
 
 <a name="metals"></a>
 ## 3. Elemental transition metal crystals ##
+The structures of pure/elemental (transition) metal crystals are easy to describe because the atoms that form these metals can be thought of as identical perfect spheres. 
+The same can be said about the structure of the rare gases at very low temperatures. These substances crystallize in one of four basic structures: 
+simple cubic (SC), body-centered cubic (BCC), hexagonal closest-packed (HCP), and face-centered cubic (FCC, sometimes called cubic closest-packed or CCP).<br/><br/>
+For this interactive part, each person should pick a transition metal from [this list](https://docs.google.com/spreadsheets/d/18eGKzwFccBX31f3xS07AVihFiK6Y22Fzo0DGud67_zY/). 
+Write your name next to it to claim the element.
 
-### Structure and lattice constant ###
+### Creating the crystal and convergence tests ###
+
+Open the next notebook [here](https://colab.research.google.com/drive/1sDo3XL7VdYPrl7Ba4icPcZN0EIKckbzp).<br/>
+The `ase.build` module comes very handy here! It can easily and quickly create a lot of the common structures. Let us import `bulk` from that module to 
+create the FCC structure of the transition metal you picked and create a cif file.
 
 ```python
 from ase.build import bulk #The ase.build module has many functions to generate solids and molecules - very handy!
+
+element = '___'# specify your metal
+
+material = bulk(element, 'fcc', a=3)
+write(element +'.cif', material)
 ```
+Then we can do convergence tests like we did for Hydrogen. Just that now - as we are having a 3D bulk structure - we need to also check for *k*-point convergence.
+
+### Structure and lattice constant ###
+In fact, the stable phase of the elemental crystals on the list are in fact either FCC or BCC. Hence, in our case we will not look at SC or HCP structures.<br/>
+Now open up the following notebook [here](https://colab.research.google.com/drive/166rrErQaOgmRsRgRIGmG_hXZdjacAdR9).<br/>
+You will loop over lattice constants for both FCC and BCC and by calculating the energy as a function of lattice constant you will be able to 
+find the optimal lattice constant and phase. At this point you should hopefully be familiar with the concept and code snippets used in this notebook.
+
 
 ### Energy band diagram ###
 
