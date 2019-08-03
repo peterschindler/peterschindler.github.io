@@ -7,7 +7,7 @@ permalink: /
 On this website I will try to guide you through the interactive part of the practical DFT lecture. Hopefully this will be interesting and useful for you!
 
 We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/) in conjunction with the DFT code [GPAW](https://wiki.fysik.dtu.dk/gpaw/index.html).
-<!--
+<!---
 ## Overview ##
 
 1. [ASE Basics](#basics)
@@ -42,14 +42,14 @@ from gpaw import GPAW, PW #GPAW will be our main DFT calculator and PW is the pl
 This has typically one of the following forms (if .module is specified only a specific module of a Python package is imported, otherwise the whole package is considered):
 ```python
 import package.module as pm #let's you access functions/objects like so: pm.function
-from package.module import object/function #imports object or function from package.module
+from package.module import function #imports object or function from package.module
 from package.module import * #imports all functions/objects
 import package.module #same
 ```
 This is sorted from best to worst practice when it comes to importing modules in Python.
 
 ### Creating our first atomic structure ###
-First, let's create a H2 molecule (experimental distance is 0.74 Angstroms) and add some vacuum padding around it
+First, let's create a H<sub>2</sub> molecule (experimental distance is 0.74 Angstroms) and add some vacuum padding around it
 ```python
 h2 = Atoms('H2', [(0, 0, 0), (0, 0, 0.74)])
 h2.center(vacuum=2.5)
@@ -63,6 +63,7 @@ and we can let ASE tell us the cell parameters and atomic positions of the objec
 print(h2.cell)
 print(h2.positions)
 ```
+For a full list of atomic properties we can set and access refer to [this link](https://wiki.fysik.dtu.dk/ase/ase/atoms.html).
 ### Set GPAW calculator ###
 Now, let's define a calculator using GPAW. We are specifying the exchange-correlation functional, *k*-points, the plane wave energy cutoff and a file to safe the calculation results.
 ```python
@@ -71,12 +72,13 @@ calc = GPAW(xc='LDA',
             mode=PW(500), 
             txt='h2.txt')
 ```
-Then we need to "attach" our calculator to the H2 molecule we created earlier.
+Then we need to "attach" our calculator to the H<sub>2</sub> molecule we created earlier.
 ```python
 h2.set_calculator(calc)
 ```
 ### Evaluate properties ###
-Now we can simply calculate the energy of the atomic object and could either directly return it or safe the result in a variable
+Using the calculator (GPAW) we now can simply calculate the energy of the atomic object and could either directly return it with `print` 
+or safe the result in a variable (e.g. `result`)
 ```python
 print(h2.get_potential_energy()) #or
 result = h2.get_potential_energy()
@@ -84,7 +86,7 @@ result = h2.get_potential_energy()
 Alternatively, we could also get the forces by `.get_forces()` among many other things.
 
 ### Testing for convergence ###
-Python's for-loop can now we very useful in testing for convergence (without tediously rewriting input files or continuously reading out energy results)
+Python's for-loop greatly facilitates the testing for convergence (without tediously rewriting input files and continuously reading out energy results)
 ```python
 cutoffs = [100,200,300,400,500,1000]
 energies = []
@@ -103,47 +105,53 @@ here `cutoffs` is a list of energy cutoffs and the for-loop iterates over each e
 ### Displaying results and analysis ###
 Now we can plot the results with `matplotlib` and by taking use of the `time` package we can get a little bit insight on how long the calculations 
 are taking when we increase the energy cutoff.<br/>
-Further, we can get the electron density by `calc.get_all_electron_density(gridrefinement=4)`, then sum over the *x*-direction and plot a 2D contour plot.
+Further, we can get the electron density by `calc.get_all_electron_density()`, then sum over the *x*-direction and plot a 2D contour plot.
 
 <a name="atomization"></a>
 ## 2. Atomization energy of H<sub>2</sub> ##
 Let us look at one more example: By calculating the energy of diatomic hydrogen and the energy of mono-atomic hydrogen we can get the atomization 
-energy (or bond energy) by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/><br/>
+energy (or bond energy) given by $$2\cdot E_\mathrm{H}-E_{\mathrm{H}_2}$$.<br/><br/>
 Link to the notebook can be found [here](https://colab.research.google.com/drive/1zrGfh1BvjIFZr53jAGF6EVnQhUd_tATG).<br/><br/>
-How does LDA and PBE compare to the experimental value?
+How do LDA and PBE compare to the experimental value?
 
 <a name="metals"></a>
 ## 3. Elemental transition metal crystals ##
 The structures of pure/elemental (transition) metal crystals are easy to describe because the atoms that form these metals can be thought of as identical perfect spheres. 
-The same can be said about the structure of the rare gases at very low temperatures. These substances crystallize in one of four basic structures: 
-simple cubic (SC), body-centered cubic (BCC), hexagonal closest-packed (HCP), and face-centered cubic (FCC, sometimes called cubic closest-packed or CCP).<br/><br/>
+The same can be said about the structure of the rare gases at very low temperatures. These substances crystallize in one of four basic structures that arise 
+from closely packing spheres:<br/> 
+Simple cubic (SC), body-centered cubic (BCC), hexagonal closest-packed (HCP), and face-centered cubic (FCC, sometimes called cubic closest-packed or CCP).<br/><br/>
 For this interactive part, each person should pick a transition metal from [this list](https://docs.google.com/spreadsheets/d/18eGKzwFccBX31f3xS07AVihFiK6Y22Fzo0DGud67_zY/). 
-Write your name next to it to claim the element.
+Write your name next to one element to claim it.
 
 ### Creating the crystal and convergence tests ###
 
-Open the next notebook [here](https://colab.research.google.com/drive/1sDo3XL7VdYPrl7Ba4icPcZN0EIKckbzp).<br/>
+Open the next notebook [here](https://colab.research.google.com/drive/1sDo3XL7VdYPrl7Ba4icPcZN0EIKckbzp).<br/><br/>
 The `ase.build` module comes very handy here! It can easily and quickly create a lot of the common structures. Let us import `bulk` from that module to 
-create the FCC structure of the transition metal you picked and create a cif file.
+create the FCC structure of the transition metal you picked and create and look at the cif file.
 
 ```python
 from ase.build import bulk #The ase.build module has many functions to generate solids and molecules - very handy!
 
 element = '___'# specify your metal
 
-material = bulk(element, 'fcc', a=3)
-write(element +'.cif', material)
+material = bulk(element, 'fcc', a = 3)
+write(element + '.cif', material)
 ```
-Then we can do convergence tests like we did for Hydrogen. Just that now - as we are having a 3D bulk structure - we need to also check for *k*-point convergence.
+Then we can do convergence tests like we did for Hydrogen. However, as we are dealing with a 3D bulk structure, we also need to check for 
+*k*-point convergence this time.
 
 ### Structure and lattice constant ###
-In fact, the stable phase of the elemental crystals on the list are in fact either FCC or BCC. Hence, in our case we will not look at SC or HCP structures.<br/>
-Now open up the following notebook [here](https://colab.research.google.com/drive/166rrErQaOgmRsRgRIGmG_hXZdjacAdR9).<br/>
+The stable phase of the elemental crystals on the list are in fact either FCC or BCC. Hence, in our case we will not look at SC or HCP structures, 
+to make our lifes easier.<br/><br/>
+Now open up the following notebook [here](https://colab.research.google.com/drive/166rrErQaOgmRsRgRIGmG_hXZdjacAdR9).<br/><br/>
 You will loop over lattice constants for both FCC and BCC and by calculating the energy as a function of lattice constant you will be able to 
-find the optimal lattice constant and phase. At this point you should hopefully be familiar with the concept and code snippets used in this notebook.
-
+find the optimal lattice constant and phase. At this point you should hopefully be familiar with the concepts and code snippets used in this notebook.<br/><br/>
+Please, fill in your results in the [Google spreadsheet](https://docs.google.com/spreadsheets/d/18eGKzwFccBX31f3xS07AVihFiK6Y22Fzo0DGud67_zY/) and check if they match
+up with the experimental values on sheet 2.
 
 ### Energy band diagram ###
+Lastly, let's calculate the energy band diagram along a high symmetry path in the Brillouin zone. For that, we first calculate the ground state 
+electron density for the optimized transition metal structure that we calculated in the previous notebook.
 
 ### Creating super cells and slabs ###
 
