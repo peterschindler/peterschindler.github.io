@@ -7,13 +7,6 @@ permalink: /
 On this website I will try to guide you through the interactive part of the practical DFT lecture. Hopefully this will be interesting and useful for you!
 
 We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/) in conjunction with the DFT code [GPAW](https://wiki.fysik.dtu.dk/gpaw/index.html).
-<!---
-## Overview ##
-
-1. [ASE Basics](#basics)
-2. [Atomization energy of H<sub>2</sub>](#atomization)
-3. [Elemental transition metal crystals](#metals)
--->
 
 ## Google Colab ##
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
@@ -150,12 +143,12 @@ Please, fill in your results in the [Google spreadsheet](https://docs.google.com
 up with the experimental values on sheet 2.
 
 ### Energy band diagram ###
-Lastly, let's calculate the energy band diagram along a high symmetry path in the Brillouin zone. For that, we first calculate the ground state 
-electron density for the optimized transition metal structure that we calculated in the previous notebook.
+Lastly, let's calculate the energy band diagram along a high symmetry path in the Brillouin zone.<br/><br/>
+Open up the following notebook [here](https://colab.research.google.com/drive/1HWiWtgVyYM5BwXHhLZWbrjkKekfLa3LL).<br/><br/>
+First we calculate the ground state electron density for the optimized transition metal structure that we calculated in the previous notebook. Then, 
+for the fixed ground state electron density (called non-self consistent field; nscf) we calculate the energy bands along a high-symmetry path in 
+the 1st Brillouin zone. This is done by loading the calculation output file from before `gs.gpw` and by adding `fixdensity=True`.<br/>
+ASE can create and handle *k*-point paths in different crystal structures/symmetries. More details [here](https://wiki.fysik.dtu.dk/ase/ase/dft/kpoints.html).
 
-### Creating super cells and slabs ###
+## Manipulating atomic structures and using different calculators ##
 
-### Resources ###
-
-1. [Atomic Simulation Environment](https://wiki.fysik.dtu.dk/ase/)
-2. <font color="red">color</font>
