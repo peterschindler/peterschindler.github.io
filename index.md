@@ -10,7 +10,7 @@ We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dt
 
 ## Google Colab ##
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
-locally - you only need a browser. Our code will be running in a Jupyter notebook using Google's resources.<br/>
+locally - you only need a browser. Our code will be running in a Jupyter notebook using Google's resources.<br/><br/>
 To access a Python notebook just follow [**this link**](https://colab.research.google.com/drive/1mofb8yD9rcwVFlBnwkrMf2rx3E1Pru6u) and then click on <b>'File' > 'Save a copy in Drive...'</b>
 <center><img src="Images/colab.jpeg" alt="Google Colab: Copying a Python notebook to your Google Drive" style="width: 300px;"/><br/>
 </center>
@@ -150,5 +150,9 @@ for the fixed ground state electron density (called non-self consistent field; n
 the 1st Brillouin zone. This is done by loading the calculation output file from before `gs.gpw` and by adding `fixdensity=True`.<br/>
 ASE can create and handle *k*-point paths in different crystal structures/symmetries. More details [here](https://wiki.fysik.dtu.dk/ase/ase/dft/kpoints.html).
 
-## Manipulating atomic structures and using different calculators ##
+## 4. Manipulating atomic structures and using different calculators ##
 
+## Feedback ##
+I very much enjoy teaching and I strive to improve my teaching skills. Please, could you fill out this [feedback form](https://forms.gle/UcXyu7HgcHJCiVaQ8)?
+Your feedback is highly appreciated and will help me to improve as a teacher.<br/><br/>
+Thank you very much!
