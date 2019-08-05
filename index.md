@@ -11,7 +11,8 @@ We will be using the [Atomic Simulation Environment (ASE)](https://wiki.fysik.dt
 ## Google Colab ##
 Both ASE and GPAW operate through Python. We will be using Google's Colab service to make it easy to follow along. No need to install Python 
 locally - you only need a browser. Our code will be running in a Jupyter notebook using Google's resources.<br/><br/>
-To access a Python notebook just follow [**this link**](https://colab.research.google.com/drive/1mofb8yD9rcwVFlBnwkrMf2rx3E1Pru6u) and then click on <b>'File' > 'Save a copy in Drive...'</b>
+To access a Python notebook just follow [**this link**](https://colab.research.google.com/drive/1mofb8yD9rcwVFlBnwkrMf2rx3E1Pru6u) and 
+then click on <b>'File' > 'Save a copy in Drive...'</b>
 <center><img src="Images/colab.jpeg" alt="Google Colab: Copying a Python notebook to your Google Drive" style="width: 300px;"/><br/>
 </center>
 Once you have copied the notebook to your Google Drive you can edit, execute and work on it.
@@ -159,6 +160,18 @@ how to delete and replace atoms, how to determime the space group, how to create
 Additional information can be found about [space groups](https://wiki.fysik.dtu.dk/ase/ase/spacegroup/spacegroup.html), [surfaces](https://wiki.fysik.dtu.dk/ase/ase/build/surface.html)
  and [nanoparticles](https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html).
 
+
+## What's next? ##
+
+There are many things to explore when it comes to ASE. Just try it out! You can use one of the notebooks as a basis to create something different or 
+create a new notebook from scratch by clicking <b>'File' > 'New Python 3 notebook'</b>. For example, find the equilibrium structure for Silicon and 
+calculate the energy band structure. <br/>
+Or if you want to use this more regularly (and also want to take advantage of the graphical user interface `ase.gui`) then you should install Python 3 
+on your computer. I recommend [Anaconda](https://www.anaconda.com/distribution/). Then you can install ASE by typing `pip install ase` in the Anaconda shell.
+This may also work for GPAW (`pip install gpaw`) but can be more tricky as there are some C dependencies - please, refer to their [instructions](https://wiki.fysik.dtu.dk/gpaw/install.html).<br/>
+Lastly, if you want to run more serious DFT codes with this, you need Python and these packages installed at the server/cluster that you are using. I am not 
+sure if the server that you are using has Python. However, if you will do more DFT during your research I recommend that you tell your PI to get an account at 
+the [Stanford Sherlock cluster](https://www.sherlock.stanford.edu/).
 
 ## Feedback ##
 I very much enjoy teaching and I strive to improve my teaching skills. Please, could you fill out this [**feedback form**](https://forms.gle/UcXyu7HgcHJCiVaQ8)?
