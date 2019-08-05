@@ -163,15 +163,17 @@ Additional information can be found about [space groups](https://wiki.fysik.dtu.
 
 ## What's next? ##
 
-There are many things to explore when it comes to ASE. Just try it out! You can use one of the notebooks as a basis to create something different or 
-create a new notebook from scratch by clicking <b>'File' > 'New Python 3 notebook'</b>. For example, find the equilibrium structure for Silicon and 
+There are many things to explore when it comes to ASE. Just try it out! You can use one of the notebooks as the basis to create something different or 
+you can make a new notebook from scratch by clicking <b>'File' > 'New Python 3 notebook'</b>. For example, find the equilibrium structure for Silicon and 
 calculate the energy band structure. <br/>
-Or if you want to use this more regularly (and also want to take advantage of the graphical user interface `ase.gui`) then you should install Python 3 
+If you want to use this more regularly (and also want to take advantage of the graphical user interface `ase.gui`) then you should install Python 3 
 on your computer. I recommend [Anaconda](https://www.anaconda.com/distribution/). Then you can install ASE by typing `pip install ase` in the Anaconda shell.
 This may also work for GPAW (`pip install gpaw`) but can be more tricky as there are some C dependencies - please, refer to their [instructions](https://wiki.fysik.dtu.dk/gpaw/install.html).<br/>
 Lastly, if you want to run more serious DFT codes with this, you need Python and these packages installed at the server/cluster that you are using. I am not 
-sure if the server that you are using has Python. However, if you will do more DFT during your research I recommend that you tell your PI to get an account at 
-the [Stanford Sherlock cluster](https://www.sherlock.stanford.edu/).
+sure if the server that you are using for the DFT project has Python. However, if you will do more DFT during your research I recommend that you tell your PI to get an account at 
+the [Stanford Sherlock cluster](https://www.sherlock.stanford.edu/).<br/><br/>
+The nice thing about ASE is that it is pretty much the same Python code regardless of which calculator you are using (VASP, Quantum Espresso, Abinit,...).
+More information on how you can use different DFT packages within ASE can be found [here](https://wiki.fysik.dtu.dk/ase/ase/calculators/calculators.html)
 
 ## Feedback ##
 I very much enjoy teaching and I strive to improve my teaching skills. Please, could you fill out this [**feedback form**](https://forms.gle/UcXyu7HgcHJCiVaQ8)?
