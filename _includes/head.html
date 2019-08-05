@@ -9,6 +9,8 @@
     {{ page.title }}
     {% else %}
     {{ site.title }}
+    {% endif %}
+    {% if page.subtitle %}
     <br>
     {{ site.subtitle }}
     {% endif %}

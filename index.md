@@ -173,7 +173,7 @@ Lastly, if you want to run more serious DFT codes with this, you need Python and
 sure if the server that you are using for the DFT project has Python. However, if you will do more DFT during your research I recommend that you tell your PI to get an account at 
 the [Stanford Sherlock cluster](https://www.sherlock.stanford.edu/).<br/><br/>
 The nice thing about ASE is that it is pretty much the same Python code regardless of which calculator you are using (VASP, Quantum Espresso, Abinit,...).
-More information on how you can use different DFT packages within ASE can be found [here](https://wiki.fysik.dtu.dk/ase/ase/calculators/calculators.html)
+More information on how you can use different DFT packages within ASE can be found [here](https://wiki.fysik.dtu.dk/ase/ase/calculators/calculators.html).
 
 ## Feedback ##
 I very much enjoy teaching and I strive to improve my teaching skills. Please, could you fill out this [**feedback form**](https://forms.gle/UcXyu7HgcHJCiVaQ8)?
