@@ -21,24 +21,24 @@ Once you have copied the notebook to your Google Drive you can edit, execute and
 ## 1. ASE Basics ##
 
 ### Importing modules ###
-First, we need to install ASE and GPAW on the server (`%%capture` represses output of the notebook cell)
+First, we need to install ASE and GPAW on the server (`%%capture` represses output of the notebook cell). This installation works again (as of 6/5/2023) thanks to a question answered on [StackExchange](https://mattermodeling.stackexchange.com/questions/4841/problem-using-gpaw-in-google-colab) (credit goes to mazay0 and jboy).
 ```bash
 %%capture
-!apt install ase
-!apt install gpaw
+!apt install python3-mpi4py cython3 libxc-dev gpaw-data
+!pip -q install gpaw
 ```
 Then we can import the necessary packages into the Python notebook
 ```python
-from ase import Atoms #The Atoms object is used to define and work with atomic structure in ASE 
-from ase.io import read, write #The ase.io module is used to read and write crystal/molecular structure files
-from gpaw import GPAW, PW #GPAW will be our main DFT calculator and PW is the plane wave mode
+from ase import Atoms  # The Atoms object is used to define and work with atomic structure in ASE 
+from ase.io import read, write  # The ase.io module is used to read and write crystal/molecular structure files
+from gpaw import GPAW, PW  # GPAW will be our main DFT calculator and PW is the plane wave mode
 ```
 This has typically one of the following forms (if .module is specified only a specific module of a Python package is imported, otherwise the whole package is considered):
 ```python
-import package.module as pm #let's you access functions/objects like so: pm.function
-from package.module import function #imports object or function from package.module
-from package.module import * #imports all functions/objects
-import package.module #same
+import package.module as pm  # let's you access functions/objects like so: pm.function
+from package.module import function  # imports object or function from package.module
+from package.module import *  # imports all functions/objects
+import package.module  # same
 ```
 This is sorted from best to worst practice when it comes to importing modules in Python.
 
@@ -74,7 +74,7 @@ h2.set_calculator(calc)
 Using the calculator (GPAW) we now can simply calculate the energy of the atomic object and could either directly return it with `print` 
 or safe the result in a variable (e.g. `result`)
 ```python
-print(h2.get_potential_energy()) #or
+print(h2.get_potential_energy())  # or
 result = h2.get_potential_energy()
 ```
 Alternatively, we could also get the forces by `.get_forces()` among many other things.
@@ -92,7 +92,7 @@ for cutoff in cutoffs:
               txt='h2.txt')
   h2.set_calculator(calc)
   energies.append(h2.get_potential_energy())
-print(energies)#eV
+print(energies)  # eV
 ```
 here `cutoffs` is a list of energy cutoffs and the for-loop iterates over each entry and then adds the calculated energy to the (at first empty) `energies` list.
 
@@ -126,7 +126,7 @@ create the FCC structure of the transition metal you picked and create and look 
 ```python
 from ase.build import bulk #The ase.build module has many functions to generate solids and molecules - very handy!
 
-element = '___'# specify your metal
+element = '___'  # specify your metal
 
 material = bulk(element, 'fcc', a = 3)
 write(element + '.cif', material)
